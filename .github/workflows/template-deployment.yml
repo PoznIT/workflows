@@ -17,25 +17,10 @@ on:
         required: true
         type: string
         default: docker-compose.override.yml
-      nginx_folder:
-        description: folder on the server where nginx config is located
-        required: false
-        type: string
-        default: nginx
       deployment_folder:
         description: folder on the server to deploy to
         required: true
         type: string
-      backend_app:
-        description: backend application name
-        required: false
-        type: string
-        default: seekretsanta-backend
-      frontend_app:
-        description: frontend application name
-        required: false
-        type: string
-        default: seekretsanta-frontend
 jobs:
   deploy:
     runs-on: ubuntu-latest
