@@ -7,11 +7,6 @@ on:
         description: name of the docker-compose file
         required: true
         type: string
-      compose_override_content:
-        description: Content of the docker-compose-override file
-        required: true
-        type: string
-        default: ""
       compose_override_file:
         description: name of the docker-compose override file
         required: true
@@ -36,11 +31,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             mkdir -p ~/${{ inputs.deployment_folder }}/${{ github.event.repository.name }}
-      - name: Create compose overrides
-        run: |
-          cat > ${{ inputs.compose_override_file }} << EOL
-          ${{ inputs.compose_override_content }}
-          EOL
 
       - name: Copy files to server
         uses: appleboy/scp-action@v0.1.3

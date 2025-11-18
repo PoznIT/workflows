@@ -1,0 +1,14 @@
+name: prepare_deploy
+description: Prepares deployment directory by syncing necessary files.
+
+runs:
+  using: "composite"
+  steps:
+    - name: Ensure deployment directory exists on server
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          mkdir -p ~/${{ inputs.deployment_folder }}/${{ github.event.repository.name }}
