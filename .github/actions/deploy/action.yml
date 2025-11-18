@@ -50,4 +50,4 @@ runs:
           docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} rm -f
           docker rmi $(docker images -a -q)
           docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} pull
-          docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} up -d
+          docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} up -d --no-build
