@@ -7,6 +7,11 @@ on:
         description: name of the docker-compose file
         required: true
         type: string
+      compose_override_content:
+        description: Content of the docker-compose-override file
+        required: true
+        type: string
+        default: ""
       compose_override_file:
         description: name of the docker-compose override file
         required: true
@@ -49,11 +54,7 @@ jobs:
       - name: Create compose overrides
         run: |
           cat > ${{ inputs.compose_override_file }} << EOL
-          services:
-            backend:
-              image: ${{ secrets.DOCKERHUB_USER }}/${{ inputs.backend_app }}:${{ github.sha }}
-            frontend:
-              image: ${{ secrets.DOCKERHUB_USER }}/${{ inputs.frontend_app }}:${{ github.sha }}
+          ${{ inputs.compose_override_content }}
           EOL
 
       - name: Copy files to server
