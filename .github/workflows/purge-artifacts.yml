@@ -7,10 +7,10 @@ on:
         description: 'Repository to purge artifacts from (e.g., owner/repo)'
         required: true
         type: string
-      personal_github_token:
-        description: 'Personal GitHub Token with repo scope'
-        required: true
-        type: string
+    secrets:
+        personal_github_token:
+            description: 'Personal GitHub Token with repo scope'
+
 
 permissions:
   actions: write
@@ -27,7 +27,7 @@ jobs:
       - name: List & delete all artifacts
         env:
           GH_REPO: ${{ inputs.repository }}
-          GITHUB_TOKEN: ${{ inputs.personal_github_token }}
+          GITHUB_TOKEN: ${{ secrets.personal_github_token }}
         run: |
           echo "Fetching artifact IDs..."
           ids=$(gh api repos/$GH_REPO/actions/artifacts --paginate -q '.artifacts[].id')
