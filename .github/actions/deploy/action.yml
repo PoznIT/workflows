@@ -50,4 +50,4 @@ runs:
           docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} rm -f
           docker rmi $(docker images -q | while read id; do docker ps -a --filter "ancestor=$id" -q | grep -q . || echo "$id"; done)
           docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} pull --quiet
-          docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} up -d --no-build --remove-orphans
+          docker compose -f ${{ inputs.compose_file }} -f ${{ inputs.compose_override_file }} up -d --no-build --remove-orphans --quiet-pull
