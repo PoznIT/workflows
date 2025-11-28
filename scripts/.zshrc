@@ -11,7 +11,6 @@ source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 plugins=(git)
-
 # ================ THEME ================
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
