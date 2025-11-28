@@ -5,6 +5,7 @@ fi
 
 # =============== ALIASES ===============
 alias lla="ls -la"
+alias ssk="ssh infok"
 
 # =============== PLUGINS =============== 
 source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -17,7 +18,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # ============== BEHAVIOUR ==============
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-ENABLE_CORRECTION="true" # enable command auto-correction.
 
 # ================ MISC =================
 export ZSH="$HOME/.oh-my-zsh"
